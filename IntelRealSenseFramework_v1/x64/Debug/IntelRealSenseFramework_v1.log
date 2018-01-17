@@ -1,0 +1,45 @@
+﻿  Main.cpp
+c:\program files (x86)\intel\rssdk\include\realsense\hand\handconfiguration.h(425): error C4996: 'Intel::RealSense::Hand::HandConfiguration::EnableGesture': Deprecated Class. For better experience please use HandCursor.
+  c:\program files (x86)\intel\rssdk\include\realsense\hand\handconfiguration.h(424): note:  см. объявление "Intel::RealSense::Hand::HandConfiguration::EnableGesture"
+c:\program files (x86)\intel\rssdk\include\realsense\hand\handconfiguration.h(433): error C4996: 'Intel::RealSense::Hand::HandConfiguration::EnableAllGestures': Deprecated Class. For better experience please use HandCursor.
+  c:\program files (x86)\intel\rssdk\include\realsense\hand\handconfiguration.h(432): note:  см. объявление "Intel::RealSense::Hand::HandConfiguration::EnableAllGestures"
+c:\program files (x86)\intel\rssdk\include\realsense\hand\handmodule.h(27): error C4996: 'Intel::RealSense::Hand::HandModule': Deprecated Class. For better experience please use HandCursor.
+  c:\program files (x86)\intel\rssdk\include\realsense\hand\handmodule.h(27): note:  см. объявление "Intel::RealSense::Hand::HandModule"
+c:\program files (x86)\intel\rssdk\include\realsense\hand\handmodule.h(40): error C4996: 'Intel::RealSense::Hand::HandConfiguration': Deprecated Class. For better experience please use HandCursor.
+  c:\program files (x86)\intel\rssdk\include\realsense\hand\handconfiguration.h(25): note:  см. объявление "Intel::RealSense::Hand::HandConfiguration"
+c:\program files (x86)\intel\rssdk\include\realsense\hand\handmodule.h(48): error C4996: 'Intel::RealSense::Hand::HandData': Deprecated Class. For better experience please use HandCursor.
+  c:\program files (x86)\intel\rssdk\include\realsense\hand\handdata.h(22): note:  см. объявление "Intel::RealSense::Hand::HandData"
+c:\program files (x86)\intel\rssdk\include\pxchandmodule.h(22): error C4996: 'Intel::RealSense::Hand::HandModule': Deprecated Class. For better experience please use HandCursor.
+  c:\program files (x86)\intel\rssdk\include\realsense\hand\handmodule.h(27): note:  см. объявление "Intel::RealSense::Hand::HandModule"
+c:\program files (x86)\intel\rssdk\include\pxchandmodule.h(23): error C4996: 'Intel::RealSense::Hand::HandConfiguration': Deprecated Class. For better experience please use HandCursor.
+  c:\program files (x86)\intel\rssdk\include\realsense\hand\handconfiguration.h(25): note:  см. объявление "Intel::RealSense::Hand::HandConfiguration"
+c:\program files (x86)\intel\rssdk\include\pxchandmodule.h(24): error C4996: 'Intel::RealSense::Hand::HandData': Deprecated Class. For better experience please use HandCursor.
+  c:\program files (x86)\intel\rssdk\include\realsense\hand\handdata.h(22): note:  см. объявление "Intel::RealSense::Hand::HandData"
+c:\program files (x86)\intel\rssdk\include\pxchanddata.h(20): error C4996: 'Intel::RealSense::Hand::HandData': Deprecated Class. For better experience please use HandCursor.
+  c:\program files (x86)\intel\rssdk\include\realsense\hand\handdata.h(22): note:  см. объявление "Intel::RealSense::Hand::HandData"
+d:\projects\intelrs\intelrealsenseframework_v1\intelrealsenseframework_v1\realsensegesturemanager.h(49): error C4996: 'Intel::RealSense::Hand::HandData::QueryFiredGesturesNumber': Deprecated Class. For better experience please use HandCursor.
+  c:\program files (x86)\intel\rssdk\include\realsense\hand\handdata.h(588): note:  см. объявление "Intel::RealSense::Hand::HandData::QueryFiredGesturesNumber"
+d:\projects\intelrs\intelrealsenseframework_v1\intelrealsenseframework_v1\realsensegesturemanager.h(60): error C4996: 'Intel::RealSense::Hand::HandData::QueryFiredGestureData': Deprecated Class. For better experience please use HandCursor.
+  c:\program files (x86)\intel\rssdk\include\realsense\hand\handdata.h(604): note:  см. объявление "Intel::RealSense::Hand::HandData::QueryFiredGestureData"
+d:\projects\intelrs\intelrealsenseframework_v1\intelrealsenseframework_v1\realsensegesturemanager.h(62): error C4996: 'Intel::RealSense::Hand::HandData::QueryHandDataById': Deprecated Class. For better experience please use HandCursor.
+  c:\program files (x86)\intel\rssdk\include\realsense\hand\handdata.h(677): note:  см. объявление "Intel::RealSense::Hand::HandData::QueryHandDataById"
+d:\projects\intelrs\intelrealsenseframework_v1\intelrealsenseframework_v1\realsensegesturemanager.h(77): error C4996: 'Intel::RealSense::Hand::HandConfiguration::SetTrackingMode': Deprecated Class. For better experience please use HandCursor.
+  c:\program files (x86)\intel\rssdk\include\realsense\hand\handconfiguration.h(204): note:  см. объявление "Intel::RealSense::Hand::HandConfiguration::SetTrackingMode"
+d:\projects\intelrs\intelrealsenseframework_v1\intelrealsenseframework_v1\realsensegesturemanager.h(78): error C4996: 'Intel::RealSense::Hand::HandConfiguration::EnableAllGestures': Deprecated Class. For better experience please use HandCursor.
+  c:\program files (x86)\intel\rssdk\include\realsense\hand\handconfiguration.h(433): note:  см. объявление "Intel::RealSense::Hand::HandConfiguration::EnableAllGestures"
+d:\projects\intelrs\intelrealsenseframework_v1\intelrealsenseframework_v1\realsensegesturemanager.h(79): error C4996: 'Intel::RealSense::Hand::HandConfiguration::DisableGesture': Deprecated Class. For better experience please use HandCursor.
+  c:\program files (x86)\intel\rssdk\include\realsense\hand\handconfiguration.h(448): note:  см. объявление "Intel::RealSense::Hand::HandConfiguration::DisableGesture"
+d:\projects\intelrs\intelrealsenseframework_v1\intelrealsenseframework_v1\realsensegesturemanager.h(80): error C4996: 'Intel::RealSense::Hand::HandConfiguration::DisableGesture': Deprecated Class. For better experience please use HandCursor.
+  c:\program files (x86)\intel\rssdk\include\realsense\hand\handconfiguration.h(448): note:  см. объявление "Intel::RealSense::Hand::HandConfiguration::DisableGesture"
+d:\projects\intelrs\intelrealsenseframework_v1\intelrealsenseframework_v1\realsensegesturemanager.h(81): error C4996: 'Intel::RealSense::Hand::HandConfiguration::DisableGesture': Deprecated Class. For better experience please use HandCursor.
+  c:\program files (x86)\intel\rssdk\include\realsense\hand\handconfiguration.h(448): note:  см. объявление "Intel::RealSense::Hand::HandConfiguration::DisableGesture"
+d:\projects\intelrs\intelrealsenseframework_v1\intelrealsenseframework_v1\realsensegesturemanager.h(82): error C4996: 'Intel::RealSense::Hand::HandConfiguration::DisableGesture': Deprecated Class. For better experience please use HandCursor.
+  c:\program files (x86)\intel\rssdk\include\realsense\hand\handconfiguration.h(448): note:  см. объявление "Intel::RealSense::Hand::HandConfiguration::DisableGesture"
+d:\projects\intelrs\intelrealsenseframework_v1\intelrealsenseframework_v1\realsensegesturemanager.h(83): error C4996: 'Intel::RealSense::Hand::HandConfiguration::DisableGesture': Deprecated Class. For better experience please use HandCursor.
+  c:\program files (x86)\intel\rssdk\include\realsense\hand\handconfiguration.h(448): note:  см. объявление "Intel::RealSense::Hand::HandConfiguration::DisableGesture"
+d:\projects\intelrs\intelrealsenseframework_v1\intelrealsenseframework_v1\realsensegesturemanager.h(84): error C4996: 'Intel::RealSense::Hand::HandConfiguration::ApplyChanges': Deprecated Class. For better experience please use HandCursor.
+  c:\program files (x86)\intel\rssdk\include\realsense\hand\handconfiguration.h(78): note:  см. объявление "Intel::RealSense::Hand::HandConfiguration::ApplyChanges"
+d:\projects\intelrs\intelrealsenseframework_v1\intelrealsenseframework_v1\realsensegesturemanager.h(93): error C4996: 'Intel::RealSense::Hand::HandModule::CreateOutput': Deprecated Class. For better experience please use HandCursor.
+  c:\program files (x86)\intel\rssdk\include\realsense\hand\handmodule.h(48): note:  см. объявление "Intel::RealSense::Hand::HandModule::CreateOutput"
+d:\projects\intelrs\intelrealsenseframework_v1\intelrealsenseframework_v1\realsensegesturemanager.h(94): error C4996: 'Intel::RealSense::Hand::HandModule::CreateActiveConfiguration': Deprecated Class. For better experience please use HandCursor.
+  c:\program files (x86)\intel\rssdk\include\realsense\hand\handmodule.h(40): note:  см. объявление "Intel::RealSense::Hand::HandModule::CreateActiveConfiguration"
