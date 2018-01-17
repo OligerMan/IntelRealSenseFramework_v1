@@ -39,14 +39,13 @@ class RealSenseGestureManager {
 	PXCHandData::IHand * handInfo;
 
 	// RealSenseGestureManager own info classes
-	std::vector<std::pair<int, std::string>> gestureBuffer;
+	std::vector<std::string> gestureBuffer[2];
 	Point3D handCoors[2];
 
 
 	void updateHandInfo() {
-		if (handData != nullptr) {
-			handData->Update();
-		}
+		handData->Update();
+
 		int gestureAmount = handData->QueryFiredGesturesNumber();
 
 		for (int i = 0; i < gestureAmount; i++) {
@@ -65,7 +64,7 @@ class RealSenseGestureManager {
 					}
 					std::wstring wstr = gestureData.name;
 					std::string str = std::string(wstr.begin(), wstr.end());
-					gestureBuffer.push_back(std::pair<int, std::string>(handSide, str));
+					gestureBuffer[handSide].push_back(str);
 				}
 			}
 		}
@@ -88,14 +87,17 @@ class RealSenseGestureManager {
 	}
 
 	void configGestureManager() {
-		config->SetTrackingMode(PXCHandData::TRACKING_MODE_FULL_HAND);
+		//config->SetTrackingMode(PXCHandData::TRACKING_MODE_FULL_HAND);
 		config->EnableNormalizedJoints(true);
+		config->EnableAllAlerts();
+		config->EnableSegmentationImage(true);
 		config->EnableAllGestures();
 		/*config->DisableGesture(L"swipe_up");
 		config->DisableGesture(L"swipe_down");
 		config->DisableGesture(L"swipe_left");
 		config->DisableGesture(L"swipe_right");*/
 		config->DisableGesture(L"fist");
+		config->DisableGesture(L"click");
 		config->DisableGesture(L"spreadfingers");
 		config->DisableGesture(L"wave");
 		config->ApplyChanges();
@@ -105,12 +107,12 @@ public:
 	RealSenseGestureManager() {
 		pxcSession = PXCSession::CreateInstance();
 		senseManager = pxcSession->CreateSenseManager();
-		senseManager->EnableHand();
-		senseManager->Init();
+		senseManager->EnableHand(0);
 		handAnalizer = senseManager->QueryHand();
 		handData = handAnalizer->CreateOutput();
 		config = handAnalizer->CreateActiveConfiguration();
 		configGestureManager();
+		senseManager->Init();
 		
 	};
 
@@ -129,7 +131,18 @@ public:
 		return handCoors[handSide];
 	}
 
-	std::vector<std::pair<int, std::string>> getGesturesVector() {
-		return gestureBuffer;
+	std::vector<std::string> getGesturesVector(handSide handSide) {
+		return gestureBuffer[handSide];
+	}
+
+	std::string getLastGesture(handSide handSide) {
+		if (gestureBuffer[handSide].size() == 0) {
+			return "nothing";
+		}
+		else {
+			std::string output = gestureBuffer[handSide][gestureBuffer[handSide].size() - 1];
+			gestureBuffer[handSide].pop_back();
+			return output;
+		}
 	}
 };
