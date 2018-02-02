@@ -91,7 +91,7 @@ class RealSenseGestureManager {
 		config->EnableNormalizedJoints(true);
 		config->EnableAllAlerts();
 		config->EnableSegmentationImage(true);
-		config->EnableAllGestures();
+		config->EnableAllGestures(true);
 		/*config->DisableGesture(L"swipe_up");
 		config->DisableGesture(L"swipe_down");
 		config->DisableGesture(L"swipe_left");
