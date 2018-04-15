@@ -2,6 +2,7 @@
 
 #include "RealSenseGestureManager.h"
 #include "WinInterface.h"
+#include "GestureHandler.h"
 
 
 // SFML includes
@@ -13,202 +14,74 @@ using namespace std;
 
 bool stop = false;
 
-// counters
-int mouse_press_cnter = 0;
-int alt_press_cnter = 0;
-int left_tap_cnter = 0;
-int right_tap_cnter = 0;
-int right_button_cnter = 0;
-int double_click_cnter = 0;
 
 
-//void handleGestures(std::string left_gesture, std::string right_gesture) {
-//
-//	if (right_gesture == "two_fingers_pinch_open") {
-//		if (mouse_press_cnter < 0) {
-//			mouseLeftButtonDown();
-//		}
-//		mouse_press_cnter = 4;
-//	}
-//
-//	if (right_gesture == "thumb_up") {
-//		mouseWheelScrollUp();
-//		if (left_gesture == "thumb_up") {
-//			stop = true;
-//		}
-//	}
-//
-//	if (right_gesture == "thumb_down") {
-//		mouseWheelScrollDown();
-//	}
-//
-//	if (right_gesture == "tap") {
-//		if (alt_press_cnter < 0 && right_tap_cnter < 0) {
-//			mouseLeftButtonClick();
-//			right_tap_cnter = 1;
-//		}
-//		else if(alt_press_cnter >= 0){
-//			tabKeyClick();
-//		}
-//	}
-//		
-//	if (left_gesture == "two_fingers_pinch_open") {
-//		double_click_cnter = 5;
-//	}	
-//
-//	if (double_click_cnter > 0) {
-//		if (right_gesture == "tap") {	
-//			mouseLeftButtonClick();
-//			Sleep(keypress_delay_ms);
-//			mouseLeftButtonClick();
-//		}
-//	}
-//
-//	if (left_gesture == "v_sign") {
-//		if (alt_press_cnter < 0) {
-//			altKeyDown();
-//		}
-//		alt_press_cnter = 10;
-//	}
-//
-//	if (right_gesture == "click" && right_button_cnter < 0) {
-//		mouseRightButtonClick();
-//		right_button_cnter = 1;	
-//	}
-//
-//	if (left_gesture == "swipe_up") {
-//		arrowUpClick();
-//	}
-//
-//	if (left_gesture == "swipe_left") {
-//		arrowLeftClick();
-//	}
-//
-//	if (left_gesture == "swipe_down") {
-//		arrowDownClick();
-//	}
-//
-//	if (left_gesture == "swipe_right") {
-//		arrowRightClick();
-//	}
-//
-//	if (alt_press_cnter == 0) {
-//		altKeyUp();
-//	}
-//
-//	if (mouse_press_cnter == 0) {
-//		mouseLeftButtonUp();
-//	}
-//
-//	alt_press_cnter--;
-//	mouse_press_cnter--;
-//	right_tap_cnter--;
-//	left_tap_cnter--;
-//	right_button_cnter--;
-//	double_click_cnter--;
-//}
+std::vector<bool> last_left_gestures(100); 
+std::vector<bool> last_right_gestures(100);
 
-void handleGestures(std::string left_gesture, std::string right_gesture) {
+void processWinAPI(std::vector<bool> left_gestures, std::vector<bool> right_gestures) {
 
-	if (right_gesture == "two_fingers_pinch_open") {
-		if (mouse_press_cnter < 0) {
+	if (left_gestures[nothing]) {
+		if (right_gestures[tap]) {
+			mouseLeftButtonClick();
+		}
+		if (right_gestures[two_fingers_pinch_open] && !last_right_gestures[two_fingers_pinch_open]) {
 			mouseLeftButtonDown();
 		}
-		mouse_press_cnter = 4;
+		if (!right_gestures[two_fingers_pinch_open] && last_right_gestures[two_fingers_pinch_open]) {
+			mouseLeftButtonUp();
+		}
+		if (right_gestures[thumb_up]) {
+			mouseWheelScrollUp();
+		}
+		if (right_gestures[thumb_down]) {
+			mouseWheelScrollDown();
+		}
 	}
 
-	if (mouse_press_cnter == 0) {
-		mouseLeftButtonUp();
-	}
-
-	if (right_gesture == "thumb_up") {
-		mouseWheelScrollUp();
-		if (left_gesture == "thumb_up") {
+	if (left_gestures[thumb_up]) {
+		if (right_gestures[thumb_up]) {
 			stop = true;
 		}
-	}
-
-	if (right_gesture == "thumb_down") {
-		mouseWheelScrollDown();
-	}
-
-	if (left_gesture == "v_sign") {
-		if (alt_press_cnter < 0) {
-			altKeyDown();
+		if (right_gestures[tap]) {
+			mouseRightButtonClick();
 		}
-		alt_press_cnter = 10;
+	}
+	
+	if (left_gestures[v_sign] && !last_left_gestures[v_sign]) {
+		altKeyDown();
 	}
 
-	if (right_gesture == "tap") {
-		if (alt_press_cnter < 0 && right_tap_cnter < 0) {
-			mouseLeftButtonClick();
-			right_tap_cnter = 1;
-		}
-		else if (alt_press_cnter >= 0) {
+	if (!left_gestures[v_sign] && last_left_gestures[v_sign]) {
+		altKeyUp();
+	}
+
+	if (left_gestures[v_sign]) {
+		if (right_gestures[tap]) {
 			tabKeyClick();
 		}
 	}
 
-	if (left_gesture == "two_fingers_pinch_open") {
-		double_click_cnter = 5;
-	}
-
-	if (double_click_cnter > 0) {
-		if (right_gesture == "tap") {
+	if (left_gestures[two_fingers_pinch_open]) {
+		if (right_gestures[tap]) {
 			mouseLeftButtonClick();
 			Sleep(keypress_delay_ms);
 			mouseLeftButtonClick();
 		}
 	}
 
-
-	if (right_gesture == "click" && right_button_cnter < 0) {
-		mouseRightButtonClick();
-		right_button_cnter = 1;
-	}
-
-	if (left_gesture == "swipe_up") {
-		arrowUpClick();
-	}
-
-	if (left_gesture == "swipe_left") {
-		arrowLeftClick();
-	}
-
-	if (left_gesture == "swipe_down") {
-		arrowDownClick();
-	}
-
-	if (left_gesture == "swipe_right") {
-		arrowRightClick();
-	}
-
-	if (right_gesture == "swipe_up") {
-		enterKeyClick();
-	}
-
-	if (right_gesture == "swipe_down") {
-		escapeKeyClick();
-	}
-
-	if (alt_press_cnter == 0) {
-		altKeyUp();
-	}
-
-
-	alt_press_cnter--;
-	mouse_press_cnter--;
-	right_tap_cnter--;
-	left_tap_cnter--;
-	right_button_cnter--;
-	double_click_cnter--;
+	last_left_gestures = left_gestures;
+	last_right_gestures = right_gestures;
 }
+
 
 int main() {
 	cout << "Test module for Intel RealSense Cursor Mode Framework started" << endl;
 
 
 	RealSenseGestureManager rsManager;
+	GestureHandler gest_handler;
+
 	std::string lastLeftGesture = "nothing";
 	std::string lastRightGesture = "nothing";
 
@@ -224,7 +97,7 @@ int main() {
 	bool is_button_pressed = true;
 
 	HWND hWnd = GetConsoleWindow();
-	ShowWindow(hWnd, SW_HIDE);	
+	ShowWindow(hWnd, SW_HIDE);
 
 	while (!stop) {
 		rsManager.processFrame();
@@ -237,7 +110,8 @@ int main() {
 		std::string currentLeftGesture = rsManager.getLastGesture(rsManager.leftHand);
 		std::string currentRightGesture = rsManager.getLastGesture(rsManager.rightHand);
 
-		handleGestures(currentLeftGesture, currentRightGesture);
+		gest_handler.handleGestures(currentLeftGesture, currentRightGesture);
+		processWinAPI(gest_handler.getLeftGestures(), gest_handler.getRightGestures());
 
 		if (currentRightGesture != "nothing") {
 			lastRightGesture = currentRightGesture;

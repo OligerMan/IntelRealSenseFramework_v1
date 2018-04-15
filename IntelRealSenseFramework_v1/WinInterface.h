@@ -14,6 +14,7 @@ static const WORD TAB_SCANCODE = 0x0f;
 static const WORD LEFT_ALT_SCANCODE = 0x38;
 static const WORD ENTER_SCANCODE = 0x1c;
 static const WORD ESC_SCANCODE = 0x01;
+static const WORD F4_SCANCODE = 0x3e;
 
 static const DWORD keypress_delay_ms = 10;
 
@@ -40,26 +41,32 @@ namespace WinInterface {
 
 	void mouseLeftButtonUp() {
 		mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+		Sleep(keypress_delay_ms);
 	}
 
 	void mouseLeftButtonDown() {
 		mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+		Sleep(keypress_delay_ms);
 	}
 
 	void mouseRightButtonUp() {
 		mouse_event(MOUSEEVENTF_RIGHTUP, 0, 0, 0, 0);
+		Sleep(keypress_delay_ms);
 	}
 
 	void mouseRightButtonDown() {
 		mouse_event(MOUSEEVENTF_RIGHTDOWN, 0, 0, 0, 0);
+		Sleep(keypress_delay_ms);
 	}
 
 	void mouseWheelScrollUp() {
 		mouse_event(MOUSEEVENTF_WHEEL, 0, 0, 10, 0);
+		Sleep(keypress_delay_ms);
 	}
 
 	void mouseWheelScrollDown() {
 		mouse_event(MOUSEEVENTF_WHEEL, 0, 0, -10, 0);
+		Sleep(keypress_delay_ms);
 	}
 
 	void mouseLeftButtonClick() {
@@ -193,6 +200,19 @@ namespace WinInterface {
 	void arrowRightClick() {
 		arrowRightDown();
 		arrowRightUp();
+	}
+
+	void f4KeyDown() {
+		keydown(F4_SCANCODE);
+	}
+
+	void f4KeyUp() {
+		keyup(F4_SCANCODE);
+	}
+
+	void f4KeyClick() {
+		f4KeyDown();
+		f4KeyUp();
 	}
 }
 

@@ -1,5 +1,4 @@
 ﻿  Main.cpp
-e:\projects\intelrs_v2\intelrealsenseframework_v1\main.cpp(139): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
-  IntelRealSenseFramework_v1.vcxproj -> E:\Projects\IntelRS_v2\x64\Debug\IntelRealSenseFramework_v1.exe
-  IntelRealSenseFramework_v1.vcxproj -> E:\Projects\IntelRS_v2\x64\Debug\IntelRealSenseFramework_v1.pdb (Partial PDB)
+e:\projects\github\intelrealsenseframework_v1\intelrealsenseframework_v1\main.cpp(113): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  IntelRealSenseFramework_v1.vcxproj -> E:\Projects\Github\IntelRealSenseFramework_v1\x64\Debug\IntelRealSenseFramework_v1.exe
+  IntelRealSenseFramework_v1.vcxproj -> E:\Projects\Github\IntelRealSenseFramework_v1\x64\Debug\IntelRealSenseFramework_v1.pdb (Partial PDB)

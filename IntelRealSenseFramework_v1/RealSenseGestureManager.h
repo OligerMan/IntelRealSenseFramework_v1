@@ -145,6 +145,7 @@ class RealSenseGestureManager {
 
 		config->DisableGesture(L"fist");
 		config->DisableGesture(L"full_pinch");
+		config->DisableGesture(L"click");
 		config->DisableGesture(L"spreadfingers");
 		config->DisableGesture(L"wave");
 		config->ApplyChanges();
